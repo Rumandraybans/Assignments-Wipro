@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container" style="padding-top: 30px;">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1 class="text-center">Student Registration Form</h1>
+            <hr>
+            
+            <form class="form-horizontal" action="#" method="POST">
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Roll no. :</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="roll_no" pattern="[0-9]+" title="Numbers only" required>
+                    </div>
+                </div>
+
+            
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Student name :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="fname" placeholder="First Name" pattern="[A-Za-z]+" title="Alphabets only" required>
+                    </div>
+                    <div class="col-sm-1 text-center" style="padding-top: 7px;">-</div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="lname" placeholder="Last Name" pattern="[A-Za-z]+" title="Alphabets only" required>
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Date of birth :</label>
+                    <div class="col-sm-6">
+                        <input type="date" class="form-control" name="dob" required>
+                    </div>
+                    <div class="col-sm-3">
+                        <p class="form-control-static"><i>(DD-MM-YYYY)</i></p>
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Mobile no. :</label>
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                            <span class="input-group-addon">+91</span>
+                            <input type="text" class="form-control" name="mobile" pattern="[0-9]{10}" title="10 digits required" placeholder="Mobile Number"required>
+                        </div>
+                    </div>
+                </div>
+
+            
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Gender :</label>
+                    <div class="col-sm-9">
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" value="male" required> Male
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" value="female"> Female
+                        </label>
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Department :</label>
+                    <div class="col-sm-9">
+                        <label class="radio-inline"><input type="radio" name="dept" value="CSE"> CSE</label>
+                        <label class="radio-inline"><input type="radio" name="dept" value="IT"> IT</label>
+                        <label class="radio-inline"><input type="radio" name="dept" value="ECE"> ECE</label>
+                        <label class="radio-inline"><input type="radio" name="dept" value="Civil"> Civil</label>
+                        <label class="radio-inline"><input type="radio" name="dept" value="Mech"> Mech</label>
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Course :</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" required>
+                            <option value="">Select Current Course</option>
+                            <option value="btech">B.Tech</option>
+                            <option value="mca">MCA</option>
+                            <option value="ece">ECE</option>
+                            <option value="civil">CIVIL</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9 text-center">
+                        <button type="submit" class="btn btn-danger btn-lg">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
