@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="registration_style.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Student Registration Form</h1>
+    
+    <form action="#" method="POST">
+        
+        <div class="form-row">
+            <label class="main-label">Roll no. :</label>
+            <input type="text" name="roll_no" pattern="[0-9]+" title="Numbers only" placeholder="Roll Number" required>
+        </div>
+
+        <div class="form-row">
+            <label class="main-label">Student name :</label>
+            <div class="flex-row">
+                <input type="text" name="fname" pattern="[A-Za-z]+" title="Alphabets only" placeholder="First Name" required>
+                <span>-</span>
+                <input type="text" name="lname" pattern="[A-Za-z]+" title="Alphabets only" placeholder="Last Name" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label class="main-label">Father's name :</label>
+            <input type="text" name="father_name" pattern="[A-Za-z\s]+" title="Alphabets only" placeholder="Full Name" required>
+        </div>
+
+        <div class="form-row">
+            <label class="main-label">Date of birth :</label>
+            <input type="date" name="dob" required>
+            <span class="hint">(DD-MM-YYYY)</span>
+        </div>
+
+        <div class="form-row">
+            <label class="main-label">Mobile no. :</label>
+            <div class="flex-row">
+                <input type="text" class="prefix" value="+91" readonly>
+                <span>-</span>
+                <input type="text" name="mobile" pattern="[0-9]{10}" title="Please enter 10 digits" placeholder="Mobile Number" required style="flex: none; width: 250px;">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label class="main-label">Email id :</label>
+            <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+
+        <div class="form-row">
+            <label class="main-label">Password :</label>
+            <input type="password" name="pwd" placeholder="Password" required>
+        </div>
+
+        <div class="form-row">
+            <label class="main-label">Gender :</label>
+            <div class="group">
+                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label class="main-label">Department :</label>
+            <div class="group">
+                <label><input type="radio" name="dept" value="CSE"> CSE</label>
+                <label><input type="radio" name="dept" value="IT"> IT</label>
+                <label><input type="radio" name="dept" value="ECE"> ECE</label>
+                <label><input type="radio" name="dept" value="Civil"> Civil</label>
+                <label><input type="radio" name="dept" value="Mech"> Mech</label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label class="main-label">Course :</label>
+            <select required>
+                <option value="">Select Current Course</option>
+                <option value="btech">B.Tech</option>
+                <option value="mca">MCA</option>
+                <option value="mtech">M.Tech</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <label class="main-label">Student photo :</label>
+            <input type="file" required>
+        </div>
+
+        <div class="form-row">
+            <label class="main-label">City :</label>
+            <input type="text" name="city">
+        </div>
+
+        <div class="form-row">
+            <label class="main-label">Address :</label>
+            <textarea name="address" rows="4"></textarea>
+        </div>
+
+        <div class="btn-box">
+            <button type="submit">Register</button>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>

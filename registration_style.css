@@ -1,0 +1,108 @@
+body {
+    background-color: #d0d9b9;
+    font-family: 'Fantasy', Copperplate Gothic light;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    margin: 0;
+}
+
+
+.form-container {
+    width: 100%;
+    max-width: 750px;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+}
+
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+
+label.main-label {
+    width: 160px;
+    font-weight: bold;
+}
+
+
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+input[type="date"],
+select, 
+textarea {
+    padding: 5px;
+    border: 1px solid #999;
+    flex: 1;
+}
+
+
+input[name="mobile"] {
+    flex: none; 
+    width: 300px;
+}
+
+.flex-row {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    align-items: center;
+}
+
+
+.prefix { 
+    width: 40px !important; 
+    flex: none !important; 
+    background: #eee; 
+    text-align: center;
+}
+
+
+.group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 15px;
+    flex: 1;
+    align-items: center;
+}
+
+
+.group label {
+    width: auto;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-weight: normal;
+}
+
+.group input {
+    margin-right: 5px;
+}
+
+
+.hint {
+    font-style: italic;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+
+.btn-box {
+    text-align: center;
+    margin-top: 25px;
+}
+
+button {
+    padding: 4px 20px;
+    cursor: pointer;
+}
