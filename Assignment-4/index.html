@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Management Portal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --success-green: #28a745;
+            --danger-red: #dc3545;
+            --bg-gray: #f8f9fa;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-gray);
+            padding-top: 60px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            min-height: 400px;
+        }
+
+        .list-box { 
+            border: 2px solid #eee; 
+            height: 330px;
+            padding: 15px; 
+            border-radius: 8px; 
+            overflow-y: auto;
+            margin-bottom: 20px;
+            background: #fff;
+        }
+
+        .input-modern {
+            height: 45px;
+            border-radius: 8px;
+            border: 2px solid #e1e1e1;
+            transition: all 0.3s;
+            box-shadow: none !important;
+        }
+
+        .border-green:focus { border-color: var(--success-green); }
+        .border-blue:focus { border-color: var(--primary-blue); }
+
+        .control-label { color: #555; font-weight: 600; margin-bottom: 8px; }
+
+        .btn-modern {
+            border: 2px solid var(--danger-red);
+            background: white;
+            color: var(--success-green);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            outline: none !important;
+        }
+
+        .btn-modern:hover {
+            background: var(--danger-red);
+            color: white;
+            box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+        }
+
+        .stat-item {
+            background: #fff;
+            padding: 15px;
+            border-left: 4px solid var(--primary-blue);
+            margin-bottom: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .stat-label { color: #777; font-size: 12px; display: block; }
+        .stat-value { font-size: 24px; font-weight: 600; color: var(--primary-blue); }
+
+        .student-entry {
+            background: #fdfdfd;
+            border: 1px solid #f1f1f1;
+            margin-bottom: 8px;
+            padding: 10px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <h4 style="color: var(--success-green); margin-bottom: 20px;">Student Directory</h4>
+                <div id="studentList" class="list-box">
+                    <p class="text-muted text-center" style="margin-top: 100px;">No students added yet.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <h4 style="color: var(--primary-blue); margin-bottom: 25px;">Entry Form</h4>
+                <div class="form-group">
+                    <label class="control-label">Full Name</label>
+                    <input type="text" id="nameInput" class="form-control input-modern border-green" placeholder="e.g. Sanjay Dutt">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Address</label>
+                    <input type="text" id="addressInput" class="form-control input-modern border-green" placeholder="City, Street">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Batch Code</label>
+                    <input type="text" id="batchInput" class="form-control input-modern border-blue" placeholder="e.g. B002">
+                </div>
+                <p class="small text-muted" style="margin-top: 15px;">
+                     Press <b>Enter</b> to submit data.
+                </p>
+                <div style="margin-top: 40px;">
+                    <button class="btn-modern btn-block" onclick="deleteRecord()" style="border-color: #ddd; color: #999;">Delete Last Entry</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <h4 style="color: #333; margin-bottom: 25px;">Live Analytics</h4>
+                
+                <div class="stat-item">
+                    <span class="stat-label">TOTAL REGISTERED</span>
+                    <span id="totalCount" class="stat-value">0</span>
+                </div>
+
+                <div class="stat-item" style="border-left-color: var(--success-green);">
+                    <span class="stat-label">BATCH B002 ENROLLMENT</span>
+                    <span id="b002Count" class="stat-value">0</span>
+                </div>
+
+                <div class="alert alert-warning" style="margin-top: 40px; border-radius: 8px; font-size: 13px;">
+                    <strong>Security Note:</strong> Deleting a record requires manual confirmation.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
