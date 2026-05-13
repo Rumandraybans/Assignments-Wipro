@@ -1,0 +1,93 @@
+CREATE TABLE employee (
+    employee_id INT PRIMARY KEY AUTO_INCREMENT, 
+    name VARCHAR(100) NOT NULL, 
+    exp INT CHECK (exp >= 2), 
+    salary DECIMAL(10, 2) CHECK (salary BETWEEN 12000 AND 30000), 
+    department_name VARCHAR(50) CHECK (department_name IN ('HR', 'Sales', 'Accts', 'IT')), 
+    manager_name VARCHAR(100)
+);
+
+INSERT INTO employee (name, exp, salary, department_name, manager_name)
+VALUES 
+('Arjun Sharma', 5, 25000, 'HR', 'Rajesh Gupta'),
+('Priya Nair', 3, 18000, 'Sales', 'Anita Desai'),
+('Rohan Mehra', 4, 22000, 'IT', 'Rajesh Gupta'),
+('Ananya Iyer', 2, 14000, 'Accts', 'Anita Desai'),
+('Amitabh Bachchan', 15, 30000, 'IT', 'Rajesh Gupta'),
+('Sneha Kapoor', 6, 21000, 'HR', 'Anita Desai'),
+('Vikram Seth', 8, 27000, 'Sales', 'Rajesh Gupta'),
+('Aditi Rao', 4, 15500, 'Accts', 'Anita Desai'),
+('Sanjay Dutt', 5, 19000, 'IT', 'Rajesh Gupta'),
+('Ishita Bhalla', 7, 26000, 'Accts', 'Anita Desai');
+
+
+#q1-q5
+SELECT employee_id, name, salary FROM employee;
+
+SELECT employee_id AS "Employee ID", 
+       name AS "Name of Employee", 
+       salary AS "Salary of Employee" 
+FROM employee;
+
+SELECT name, salary, (salary * 1.10) AS incremented_salary FROM employee;
+
+SELECT department_name, SUM(salary) AS total_salary_dispersed 
+FROM employee 
+GROUP BY department_name;
+
+SELECT department_name, 
+       SUM(salary) AS total_salary, 
+       MAX(salary) AS max_salary, 
+       AVG(salary) AS avg_salary 
+FROM employee 
+GROUP BY department_name;
+
+#q6-q8
+SELECT * FROM employee ORDER BY salary DESC;
+
+SELECT ROW_NUMBER() OVER(ORDER BY employee_id) AS sequence_no, employee.* FROM employee;
+
+SELECT RANK() OVER(ORDER BY salary DESC) AS salary_rank, employee.* FROM employee;
+
+
+#q9-q11
+ALTER TABLE employee 
+ADD age INT DEFAULT 26 CHECK (age BETWEEN 26 AND 60);
+
+UPDATE employee SET age = 26;
+
+#q12-q17
+SELECT COUNT(DISTINCT department_name) FROM employee;
+
+SELECT UPPER(name) FROM employee;
+
+SELECT LEFT(name, 4) FROM employee;
+
+SELECT name, LOCATE('a', name) AS pos_of_a FROM employee;
+
+SELECT department_name, COUNT(*) FROM employee GROUP BY department_name;
+
+SELECT manager_name, COUNT(*) FROM employee GROUP BY manager_name;
+
+#q18-q23
+SELECT * FROM employee WHERE employee_id IN (1, 2, 8);
+
+SELECT * FROM employee WHERE employee_id BETWEEN 1 AND 10;
+
+SELECT * FROM employee WHERE department_name = 'HR';
+
+SELECT * FROM employee WHERE department_name IN ('HR', 'Accts');
+
+SELECT * FROM employee WHERE name LIKE 'A%';
+
+SELECT * FROM employee WHERE name LIKE '%a%';
+
+#q24-q25
+SELECT department_name, AVG(salary) 
+FROM employee 
+GROUP BY department_name 
+HAVING AVG(salary) < 12000;
+
+SELECT * FROM employee 
+WHERE department_name != 'Accts' 
+AND salary NOT BETWEEN 10000 AND 20000;

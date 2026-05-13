@@ -1,0 +1,95 @@
+CREATE TABLE Student (
+    rn INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    address VARCHAR(100),
+    marks INT,
+    dob DATE,
+    batch_code VARCHAR(10)
+);
+
+
+INSERT INTO Student VALUES (101,'Arun','Noida',99,'2001-08-11','B101'),
+(102,'Shubham','Jaipur',65,'2000-08-14','B102');
+
+CREATE TABLE Batch (
+    batch_code VARCHAR(10) PRIMARY KEY,
+    batch_name VARCHAR(50),
+    duration VARCHAR(30),
+    description VARCHAR(100),
+    trainer_id INT
+);
+
+INSERT INTO Batch VALUES
+('B101','C#','6 Months','C# Training',1),
+('B102','Rust','4 Months','Rust Training',2);
+
+CREATE TABLE Fees (
+    fee_id INT AUTO_INCREMENT PRIMARY KEY,
+    rn INT,
+    fees_paid INT,
+    date_paid DATE,
+    
+    FOREIGN KEY (rn)
+    REFERENCES Student(rn)
+);
+
+INSERT INTO Fees(rn,fees_paid,date_paid) VALUES
+(101,25000,'2025-01-15'),
+(102,30000,'2025-02-10');
+
+CREATE TABLE Trainer (
+    trainer_id INT PRIMARY KEY,
+    trainer_name VARCHAR(50),
+    address VARCHAR(100),
+    qualification VARCHAR(50),
+    experience INT,
+    domain VARCHAR(50)
+);
+
+INSERT INTO Trainer VALUES
+(1,'Arun','Noida','BBA',4,'C#'),
+(2,'Shubham','Jaipur','B.Tech',3,'Rust');
+
+
+
+ALTER TABLE Batch ADD CONSTRAINT fk_trainer FOREIGN KEY (trainer_id) REFERENCES Trainer(trainer_id);
+
+ALTER TABLE Student ADD CONSTRAINT fk_batch FOREIGN KEY (batch_code) REFERENCES Batch(batch_code);
+
+
+
+--  1. Display STudent name, his address, Batch Code, Batch Name,Faculy Name, Duration of the batch
+
+
+SELECT 
+s.name AS student_name,
+s.address,
+b.batch_code,
+b.batch_name,
+t.trainer_name AS faculty_name,
+b.duration
+
+FROM Student s JOIN Batch b ON s.batch_code = b.batch_code JOIN Trainer t ON b.trainer_id = t.trainer_id;
+
+
+--  2. Student name and the fees paid by the student and the date on which the fees was paid
+
+SELECT
+s.name AS student_name,
+f.fees_paid,
+f.date_paid
+FROM Student s JOIN Fees f ON s.rn = f.rn;
+
+
+--  3. Batch Code, Batch Name and the Trainer details
+
+SELECT
+b.batch_code,
+b.batch_name,
+t.trainer_id,
+t.trainer_name,
+t.address,
+t.qualification,
+t.experience,
+t.domain
+FROM Batch b JOIN Trainer t ON b.trainer_id = t.trainer_id;

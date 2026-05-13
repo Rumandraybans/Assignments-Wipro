@@ -1,0 +1,98 @@
+CREATE TABLE WORKERS (
+  WORKER_ID INT PRIMARY KEY,
+  First_Name VARCHAR(25) NOT NULL,
+  Last_Name VARCHAR(25), 
+  Salary INT CHECK (Salary BETWEEN 10000 AND 25000),
+  Department VARCHAR(25) CHECK (Department IN ('HR', 'Sales', 'Accts', 'IT')),
+  Joining_Date DATETIME
+);
+
+INSERT INTO WORKERS (WORKER_ID, First_Name, Last_Name, Salary, Department, Joining_Date)
+VALUES 
+(1, 'Vipul', 'Arora', 15000, 'HR', '2016-06-11 00:00:00'),
+(2, 'Satish', 'Verma', 20000, 'IT', '2016-06-11 00:00:00'),
+(3, 'Vishal', 'Singhal', 25000, 'Sales', '2016-06-11 00:00:00'),
+(4, 'Amitabh', 'Singh', 12000, 'Accts', '2016-06-11 00:00:00');
+
+#q1
+SELECT First_Name AS WORKER_NAME FROM WORKERS;
+
+#q2
+SELECT UPPER(First_Name) FROM WORKERS;
+
+#q3
+SELECT DISTINCT Department FROM WORKERS;
+
+#q4
+SELECT SUBSTRING(First_Name, 1, 3) FROM WORKERS;
+
+#q5
+SELECT INSTR(First_Name, 'a') FROM WORKERS WHERE First_Name = 'Amitabh';
+
+#q6
+SELECT RTRIM(First_Name) FROM WORKERS;
+
+#q7
+SELECT LTRIM(Department) FROM WORKERS;
+
+#q8
+SELECT DISTINCT Department, LENGTH(Department) FROM WORKERS;
+
+#q9
+SELECT REPLACE(First_Name, 'a', 'A') FROM WORKERS;
+
+#q10
+SELECT CONCAT(First_Name, ' ', Last_Name) AS COMPLETE_NAME FROM WORKERS;
+
+#q11
+SELECT * FROM WORKERS ORDER BY First_Name ASC;
+
+#q12
+SELECT * FROM WORKERS ORDER BY First_Name ASC, Department DESC;
+
+#q13
+SELECT * FROM WORKERS WHERE First_Name IN ('Vipul', 'Satish');
+
+#q14
+SELECT * FROM WORKERS WHERE First_Name NOT IN ('Vipul', 'Satish');
+
+#q15
+SELECT * FROM WORKERS WHERE Department = 'Admin';
+
+#q16
+SELECT * FROM WORKERS WHERE First_Name LIKE '%a%';
+
+#q17
+SELECT * FROM WORKERS WHERE First_Name LIKE '%a';
+
+#q18
+SELECT * FROM WORKERS WHERE First_Name LIKE '_____h';
+
+#q19
+SELECT * FROM WORKERS WHERE Salary BETWEEN 100000 AND 500000;
+
+#q20
+SELECT * FROM WORKERS WHERE Joining_Date LIKE '2014-02%';
+
+#q21
+SELECT COUNT(*) FROM WORKERS WHERE Department = 'Admin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
