@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1 Edit Student
+
+  form(action=`/edit/${student.id}?_method=PUT`, method='POST')
+
+    div.form-group
+      label Name
+      input(type='text', name='name', value=student.name, required)
+
+    div.form-group
+      label Course
+      input(type='text', name='course', value=student.course, required)
+
+    div.form-group
+      label Marks
+      input(type='number', name='marks', value=student.marks, required)
+
+    button.btn.btn-edit(type='submit') Update Student

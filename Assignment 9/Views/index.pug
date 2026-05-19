@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1 Student List
+
+  a(href='/add')
+    button.btn.btn-add Add Student
+
+  table
+    tr
+      th ID
+      th Name
+      th Course
+      th Marks
+      th Actions
+
+    each student in students
+      tr
+        td= student.id
+        td= student.name
+        td= student.course
+        td= student.marks
+
+        td
+          a(href=`/edit/${student.id}`)
+            button.btn.btn-edit Edit
+
+          form(action=`/delete/${student.id}?_method=DELETE`, method='POST', style='display:inline; background:none; padding:0; margin:0; box-shadow:none; width:auto;')
+            button.btn.btn-delete(type='submit') Delete
