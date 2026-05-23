@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body { padding-top: 20px; background-color: #f9f9f9; }
+        .panel { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .action-btns .btn { margin-right: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-header text-center">Student Management Dashboard</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title" id="formTitle">Add New Student</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="studentForm">
+                        <input type="hidden" id="studentId">
+                        
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rollno">Roll No *</label>
+                            <input type="number" class="form-control" id="rollno" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Course</label>
+                            <input type="text" class="form-control" id="course">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" class="form-control" id="age" min="16">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block" id="submitBtn">Save Student</button>
+                        <button type="button" class="btn btn-default btn-block hidden" id="cancelBtn">Cancel Edit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="well">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="searchKeyword" placeholder="Search by name, course, or city...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" id="searchBtn">Search</button>
+                        <button class="btn btn-default" type="button" id="resetBtn">Reset</button>
+                    </span>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Student Records</div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Roll No</th>
+                                <th>Name</th>
+                                <th>Course</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>City</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentTableBody">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
