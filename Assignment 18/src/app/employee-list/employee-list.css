@@ -1,0 +1,58 @@
+.container {
+    width: 90%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2 {
+    color: darkgreen;
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 250px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid gray;
+}
+
+th {
+    background-color: darkblue;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    padding: 8px 12px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.edit-btn {
+    background-color: orange;
+}
+
+.delete-btn {
+    background-color: crimson;
+}
+
+button:hover {
+    opacity: 0.8;
+}

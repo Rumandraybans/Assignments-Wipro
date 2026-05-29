@@ -1,0 +1,57 @@
+<div class="container">
+
+    <h2>Employee List</h2>
+
+    <select [(ngModel)]="selectedDepartment">
+
+        <option value="All">All Departments</option>
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Sales">Sales</option>
+        <option value="Marketing">Marketing</option>
+
+    </select>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let emp of employees | departmentFilter:selectedDepartment; let i = index">
+
+                <td>{{ emp.id }}</td>
+
+                <td>{{ emp.name | titlecase }}</td>
+
+                <td>{{ emp.department | uppercase }}</td>
+
+                <td>{{ emp.salary | currency:'INR' }}</td>
+
+                <td>{{ emp.email }}</td>
+
+                <td>
+
+                    <button class="delete-btn" (click)="deleteEmployee(i)">
+                         Delete
+                    </button>
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
