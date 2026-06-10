@@ -1,0 +1,15 @@
+<h2 class="text-center mb-4">User Dashboard</h2>
+
+<div *ngIf="userProfile" class="alert alert-light border p-3 mb-4">
+  <div class="mb-2"><strong>Username:</strong> {{ userProfile.username }}</div>
+  <div class="mb-2"><strong>Email:</strong> {{ userProfile.email }}</div>
+  <div><small class="text-muted">User ID: {{ userProfile._id }}</small></div>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger text-center" role="alert">
+  {{ errorMessage }}
+</div>
+
+<div class="d-grid">
+  <button (click)="logout()" class="btn btn-danger">Logout</button>
+</div>

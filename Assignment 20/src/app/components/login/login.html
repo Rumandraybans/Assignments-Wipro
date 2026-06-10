@@ -1,0 +1,23 @@
+<h2 class="text-center mb-4">Login</h2>
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group mb-3">
+    <label class="form-label">Email Address</label>
+    <input type="email" name="email" class="form-control" [(ngModel)]="credentials.email" required placeholder="Enter email">
+  </div>
+  <div class="form-group mb-4">
+    <label class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" [(ngModel)]="credentials.password" required placeholder="Password">
+  </div>
+  
+  <div class="d-grid gap-2">
+    <button type="submit" class="btn btn-primary">Sign In</button>
+    <button type="button" class="btn btn-link text-center text-decoration-none" (click)="switchPage.emit('register')">
+      Don't have an account? Register
+    </button>
+  </div>
+</form>
+
+<div *ngIf="errorMessage" class="alert alert-danger mt-3 text-center" role="alert">
+  {{ errorMessage }}
+</div>
+
