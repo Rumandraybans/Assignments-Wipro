@@ -1,0 +1,74 @@
+<div class="card shadow-sm border-0 rounded-3 mt-4">
+  <div class="card-body p-4">
+    <h2 class="card-title text-primary h4 mb-4 fw-bold border-bottom pb-2">
+      {{ isEditMode ? 'Edit Employee Details' : 'Register New Employee' }}
+    </h2>
+    
+    <form #empForm="ngForm">
+      <div class="row g-3">
+        
+        <div class="col-md-4">
+          <label class="form-label small text-muted fw-semibold">Employee ID</label>
+          <input type="number" class="form-control form-control-lg fs-6" placeholder="e.g., 101" name="EmployeeId" [(ngModel)]="employee.EmployeeId" required>
+        </div>
+        <div class="col-md-8">
+          <label class="form-label small text-muted fw-semibold">Employee Name</label>
+          <input type="text" class="form-control form-control-lg fs-6" placeholder="Full Name" name="EmployeeName" [(ngModel)]="employee.EmployeeName" required minlength="3">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small text-muted fw-semibold">Department</label>
+          <input type="text" class="form-control form-control-lg fs-6" placeholder="e.g., Engineering" name="Department" [(ngModel)]="employee.Department" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label small text-muted fw-semibold">Designation</label>
+          <input type="text" class="form-control form-control-lg fs-6" placeholder="e.g., Frontend Developer" name="Designation" [(ngModel)]="employee.Designation" required>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label small text-muted fw-semibold">Salary (INR)</label>
+          <div class="input-group">
+            <span class="input-group-text bg-light fs-6">₹</span>
+            <input type="number" class="form-control form-control-lg fs-6" placeholder="Amount" name="Salary" [(ngModel)]="employee.Salary" required>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label small text-muted fw-semibold">Age</label>
+          <input type="number" class="form-control form-control-lg fs-6" placeholder="18-60" name="Age" [(ngModel)]="employee.Age" min="18" max="60">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label small text-muted fw-semibold">Gender</label>
+          <select class="form-select form-select-lg fs-6" name="Gender" [(ngModel)]="employee.Gender">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label small text-muted fw-semibold">Profile Image URL</label>
+          <input type="text" class="form-control form-control-lg fs-6" placeholder="Paste custom URL (or leave blank for default fallback)" name="profileImage" [(ngModel)]="employee.profileImage">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small text-muted fw-semibold">Email Address</label>
+          <input type="email" class="form-control form-control-lg fs-6" placeholder="name@company.com" name="Email" [(ngModel)]="employee.Email" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label small text-muted fw-semibold">Phone Number</label>
+          <input type="text" class="form-control form-control-lg fs-6" placeholder="10-digit number" name="Phone" [(ngModel)]="employee.Phone" pattern="[0-9]{10}">
+        </div>
+
+        <div class="col-12 pt-2">
+          <button class="btn btn-lg px-4 fs-6 fw-semibold shadow-sm" [ngClass]="isEditMode ? 'btn-success' : 'btn-primary'" (click)="saveEmployee()">
+            {{ isEditMode ? 'Update Profile' : 'Save Record' }}
+          </button>
+          <button *ngIf="isEditMode" type="button" class="btn btn-light btn-lg px-4 fs-6 fw-semibold border ms-2" (click)="resetForm()">
+            Cancel
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="card shadow-sm border-0 rounded-3 mt-4">
+  <div class="card-body p-4">
+    <h2 class="card-title text-secondary h4 mb-4 fw-bold border-bottom pb-2">Active Profiles</h2>
+    
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light text-uppercase fs-7 text-secondary">
+          <tr>
+            <th class="ps-3" style="width: 80px;">Avatar</th>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Department</th>
+            <th>Designation</th>
+            <th>Salary</th>
+            <th>Tier</th>
+            <th>Contact Details</th>
+            <th class="text-end pe-3">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="fs-6">
+          <tr *ngFor="let emp of employees" class="align-middle">
+            <td class="ps-3">
+              <img [src]="emp.profileImage" class="rounded-circle border border-2 border-light shadow-sm" width="48" height="48" style="object-fit: cover;">
+            </td>
+            <td><span class="badge bg-light text-dark border fw-medium px-2 py-1">#{{emp.EmployeeId}}</span></td>
+            <td>
+              <div class="fw-semibold text-dark">{{emp.EmployeeName | uppercase}}</div>
+            </td>
+            <td>{{emp.Department}}</td>
+            <td><span class="text-muted small">{{emp.Designation}}</span></td>
+            <td class="fw-medium text-dark">{{emp.Salary | currency:'INR':'symbol':'1.0-0'}}</td>
+            <td>
+              <span class="badge bg-info-subtle text-info rounded-pill px-2.5 py-1 text-capitalize">
+                {{emp.Salary | salaryRange}}
+              </span>
+            </td>
+            <td>
+              <div class="small text-dark mb-0.5">{{emp.Email}}</div>
+              <div class="small text-muted">{{emp.Phone | phoneFormat}}</div>
+            </td>
+            <td class="text-end pe-3">
+              <div class="btn-group btn-group-sm rounded-2 shadow-sm" role="group">
+                <button class="btn btn-outline-warning border-end-0 px-3 fw-medium" (click)="editEmployee(emp)">
+                  Edit
+                </button>
+                <button class="btn btn-outline-danger px-3 fw-medium" (click)="softDeleteEmployee(emp)">
+                  Delete
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

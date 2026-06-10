@@ -1,0 +1,47 @@
+{
+  "employees": [
+    {
+      "EmployeeId": 1,
+      "EmployeeName": "Tarun",
+      "Department": "HR",
+      "Designation": "Associate",
+      "Salary": 55220,
+      "Age": 26,
+      "Gender": "Male",
+      "Email": "tarunishr@example.com",
+      "Phone": "8989525244",
+      "profileImage": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      "isDeleted": true,
+      "id": "isE4jKm_094"
+    },
+    {
+      "EmployeeId": 2,
+      "EmployeeName": "Raman",
+      "Department": "IT",
+      "Designation": "Associate",
+      "Salary": 80400,
+      "Age": 28,
+      "Gender": "Male",
+      "Email": "raman@example.com",
+      "Phone": "9878444534",
+      "profileImage": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      "isDeleted": true,
+      "id": "ELJGhUvZ5aY"
+    },
+    {
+      "EmployeeId": 3,
+      "EmployeeName": "Sania",
+      "Department": "Management",
+      "Designation": "Manager",
+      "Salary": 189999,
+      "Age": 34,
+      "Gender": "Female",
+      "Email": "saniamanager@gmail.com",
+      "Phone": "7845563287",
+      "profileImage": "https://api.dicebear.com/7.x/lorelei/svg?seed=Sara",
+      "isDeleted": false,
+      "id": "B2NIbc3l5L4"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
